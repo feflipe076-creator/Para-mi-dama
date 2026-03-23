@@ -1,110 +1,64 @@
-:root {
-  --fundo-rosa: #ff1493;
-  --cor-texto: #ffffff;
-  --amarelo-girassol: #f6d13d;
-  --marrom-tronco: #734c29;
-}
-
 body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--fundo-rosa);
-  font-family: 'Arial', sans-serif;
-  overflow: hidden;
-  position: relative;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    color: #a96f18;
 }
 
-body::before, body::after {
-  content: "❤";
-  position: absolute;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 50px;
-  animation: pulsarCoracao 2s infinite ease-in-out;}
-
-body::before {
-  top: 15%;
-  left: 15%;
-  animation-delay: 0.5s;
+.cartao {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 10;
+    width: 80%;
+    max-width: 400px;
 }
 
-body::after {
-  bottom: 15%;
-  right: 15%;
+#botao-abrir {
+    font-size: 50px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin: 20px 0;
 }
 
-@keyframes pulsarCoracao {
-  0%, 100% { transform: scale(1); opacity: 0.4; }
-  50% { transform: scale(1.4); opacity: 0.9; }
+#botao-abrir:hover {
+    transform: scale(1.2);
 }
 
-#wrapper {
-  text-align: center;
-  z-index: 10;
-}
-
-.titulo {
-  color: var(--cor-texto);
-  font-size: 26px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  margin-bottom: 5px;
-}
-
-#jardim {
-  position: relative;
-  width: 300px;
-  height: 300px;
-}
-
-.tronco {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 14px;
-  height: 130px;
-  background-color: var(--marrom-tronco);
-  transform: translateX(-50%) scaleY(0);
-  transform-origin: bottom;
-  transition: transform 1.5s ease;
-  border-radius: 10px;
-}
-
-.petala {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background-color: var(--amarelo-girassol);
-  border-radius: 50%;
-  transform: scale(0);
-  transition: transform 1s ease;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-}
-
-.petala::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 4px;
-  height: 4px;
-  background-color: var(--marrom-tronco);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#contador {
-  margin-top: 15px;
-  color: var(--cor-texto);
-  font-weight: bold;
+.escondido {
+    display: none;
 }
 
 #relogio {
-  font-size: 20px;
-  background: rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  border-radius: 15px;
-  display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 15px 0;
+    padding: 10px;
+    background: #fff5e6;
+    border-radius: 10px;
+}
+
+.chuva-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.flor-caindo {
+    position: absolute;
+    top: -50px;
+    animation: cair linear infinite;
+}
+
+@keyframes cair {
+    to { transform: translateY(110vh) rotate(360deg); }
 }
