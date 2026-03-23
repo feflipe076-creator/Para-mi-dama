@@ -1,0 +1,63 @@
+:root {
+  --fundo: #fad0c4;
+  --cor-texto: #a96f18;
+  --amarelo-petala: #f6d13d;
+  --marrom-miolo: #734c29;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--fundo);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden; /* Impede barras de rolagem durante a animação */
+}
+
+#wrapper {
+  text-align: center;
+}
+
+.titulo {
+  color: var(--cor-texto);
+}
+
+#jardim {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin-top: 20px;
+}
+
+/* Base da animação dos elementos */
+.petala, .tronco {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  transform-origin: bottom center;
+  transition: transform 1s ease-out; /* Transição para o crescimento */
+}
+
+/* Estilo do Tronco */
+.tronco {
+  width: 15px;
+  height: 150px;
+  background-color: var(--marrom-miolo);
+  border-radius: 10px 10px 0 0;
+}
+
+/* Estilo das Pétalas/Flores */
+.petala {
+  width: 10px;
+  height: 10px;
+  background-color: var(--amarelo-petala);
+  border-radius: 50%; /* Faz as pétalas circulares */
+}
+
+/* Classe CSS que será adicionada pelo JS para iniciar a animação */
+.animar {
+  transform: translateX(-50%) scale(1);
+}
