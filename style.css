@@ -23,8 +23,7 @@ body::before, body::after {
   position: absolute;
   color: rgba(255, 255, 255, 0.4);
   font-size: 50px;
-  animation: pulsarCoracao 2s infinite ease-in-out;
-}
+  animation: pulsarCoracao 2s infinite ease-in-out;}
 
 body::before {
   top: 15%;
