@@ -1,25 +1,120 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Minha Flor</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Minha flor de girassol 🌻❤️</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ff1493;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            color: #ffffff;
+        }
+        .chuva-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .cartao {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+            width: 80%;
+            max-width: 400px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        #botao-abrir {
+            font-size: 70px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            animation: pulsar 1.5s infinite;
+        }
+        @keyframes pulsar {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        #conteudo-secreto {
+            display: none;
+        }
+        #relogio {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+        .flor-caindo {
+            position: absolute;
+            top: -50px;
+            animation: cair linear forwards;
+        }
+        @keyframes cair {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <div class="chuva-container" id="chuva"></div>
-    
     <div class="cartao">
         <h1>Para você 🌻</h1>
-        <p>Clique no girassol para ver nosso tempo</p>
         <div id="botao-abrir">🌻</div>
-        
-        <div id="conteudo-secreto" class="escondido">
+        <div id="conteudo-secreto">
             <div id="relogio"></div>
-            <p class="mensagem">Cada segundo ao seu lado é especial.</p>
+            <p>Cada segundo ao seu lado é especial. ❤️</p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const botao = document.getElementById('botao-abrir');
+        const conteudo = document.getElementById('conteudo-secreto');
+        const chuvaContainer = document.getElementById('chuva');
+
+        const dataInicio = new Date('2026-02-21T00:00:00');
+
+        function criarFlor() {
+            const flor = document.createElement('div');
+            flor.classList.add('flor-caindo');
+            flor.innerHTML = "🌻";
+            flor.style.left = Math.random() * 100 + "vw";
+            flor.style.animationDuration = Math.random() * 3 + 2 + "s";
+            flor.style.fontSize = Math.random() * 20 + 15 + "px";
+            chuvaContainer.appendChild(flor);
+            setTimeout(() => flor.remove(), 5000);
+        }
+        setInterval(criarFlor, 300);
+
+        botao.addEventListener('click', function() {
+            conteudo.style.display = 'block';
+            botao.style.display = 'none';
+        });
+
+        function atualizarRelogio() {
+            const agora = new Date();
+            const diff = agora - dataInicio;
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const mins = Math.floor((diff / (1000 * 60)) % 60);
+            const segs = Math.floor((diff / 1000) % 60);
+            document.getElementById('relogio').innerHTML = 
+                dias + "d " + horas + "h " + mins + "m " + segs + "s";
+        }
+        setInterval(atualizarRelogio, 1000);
+        atualizarRelogio();
+    </script>
 </body>
 </html>
