@@ -1,0 +1,57 @@
+:root {
+  --fundo: #fad0c4;
+  --cor-texto: #a96f18;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--fundo);
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+.titulo {
+  color: var(--cor-texto);
+  margin-bottom: 10px;
+}
+
+#jardim {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.tronco {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 15px;
+  height: 120px;
+  background-color: #734c29;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: bottom;
+  transition: transform 1.5s ease;
+  border-radius: 10px;
+}
+
+.petala {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f6d13d;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 1s ease;
+}
+
+#contador {
+  margin-top: 20px;
+  color: var(--cor-texto);
+  text-align: center;
+  font-weight: bold;
+}
