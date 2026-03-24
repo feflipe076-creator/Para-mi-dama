@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const chuvaContainer = document.getElementById('chuva');
     const musica = document.getElementById('musica');
 
-    const dataInicio = new Date('2026-02-21T00:00:00');
+    const dataInicio = new Date('2026-02-20T00:00:00');
 
     function criarFlor() {
         const flor = document.createElement('div');
