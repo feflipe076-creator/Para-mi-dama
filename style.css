@@ -4,25 +4,41 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000 url('foto.jpg') no-repeat center center/cover;
+    background: #000;
     font-family: Arial, sans-serif;
     overflow: hidden;
     position: relative;
 }
 
+#capa-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
 body::before {
     content: "";
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+    z-index: 2;
 }
 
 .chuva-container {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
     pointer-events: none;
-    z-index: 2;
+    z-index: 3;
 }
 
 .cartao {
@@ -50,8 +66,8 @@ body::before {
     50% { transform: scale(1.1); }
 }
 
-.escondido {
-    display: none;
+.escondido { 
+    display: none; 
 }
 
 #relogio {
