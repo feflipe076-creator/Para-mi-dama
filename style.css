@@ -55,7 +55,7 @@ body::before {
 }
 
 #botao-abrir {
-    font-size: 60px;
+    font-size: 90px;
     cursor: pointer;
     margin: 20px 0;
     animation: pulsar 1.5s infinite;
