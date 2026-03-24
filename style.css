@@ -4,32 +4,50 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-    font-family: 'Arial', sans-serif;
+    background: #000 url('foto.jpg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
     overflow: hidden;
-    color: #a96f18;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.chuva-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 2;
 }
 
 .cartao {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.15);
     padding: 30px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
     z-index: 10;
-    width: 80%;
-    max-width: 400px;
+    width: 85%;
+    max-width: 350px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
 }
 
 #botao-abrir {
-    font-size: 50px;
+    font-size: 60px;
     cursor: pointer;
-    transition: transform 0.3s;
     margin: 20px 0;
+    animation: pulsar 1.5s infinite;
 }
 
-#botao-abrir:hover {
-    transform: scale(1.2);
+@keyframes pulsar {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .escondido {
@@ -37,26 +55,18 @@ body {
 }
 
 #relogio {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     margin: 15px 0;
     padding: 10px;
-    background: #fff5e6;
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
-}
-
-.chuva-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
 
 .flor-caindo {
     position: absolute;
     top: -50px;
-    animation: cair linear infinite;
+    animation: cair linear forwards;
 }
 
 @keyframes cair {
